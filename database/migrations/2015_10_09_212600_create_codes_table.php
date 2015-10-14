@@ -7,7 +7,7 @@ class CreateCodesTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('Codes', function(Blueprint $table) {
+		Schema::create('codes', function(Blueprint $table) {
 			$table->increments('code_id');
 			$table->timestamps();
 			$table->string('code', 20);
@@ -18,6 +18,6 @@ class CreateCodesTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('Codes');
+		Schema::drop('codes');
 	}
 }

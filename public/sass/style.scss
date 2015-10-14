@@ -1,6 +1,94 @@
-$test : #ffffff;
+
+$primarycolor: #028D64;
+
+$secondarycolor1 : #e0097e;
+$secondarycolor2 : #9ABE36;
+
+@font-face {
+  font-family: 'Tw cen';
+  src: url('tw-cen.ttf');
+}
+
 
 
 body {
-	background-color : $test;
+	background-image:url('../images/vacation.jpg');
+	background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
+
+#logoDiv {
+    text-align: center;
+    #logo {
+        width : 543px;
+        height : 208px;
+    }
+}
+
+#instructions {
+    width : 50%;
+    margin-top: 20px;
+    display: inline-block;
+    float: left;
+/*    text-align: center;*/
+        p {
+            font-size : 25px;
+            font-family: 'Tw cen', Sans-Serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+    
+}
+
+
+#codeForm {
+    margin-top: 100px;
+    width : 50%;
+    display: inline-block;
+        ul {
+            list-style-type: none;
+            padding-left: 0%;
+        }
+        .form-control {
+            width : 50%;
+        }
+}
+
+
+.mainBtn {
+    background-color: $secondarycolor2;
+    border-width: 0px;
+    color: white;
+    
+        &:hover {
+            background-color:  lighten($secondarycolor2, 2);
+        }
+    
+    padding : 8px 16px;
+    width : 30%;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+#registerForm {
+    margin-left: 30%;
+
+        ul {
+            list-style-type: none;
+            padding-left: 0%;
+        }
+}
+
+
+
+
+

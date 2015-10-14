@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model {
 
-	protected $table = 'Users';
+	protected $table = 'users';
 	public $timestamps = true;
 	protected $guarded = array('ipAddress');
 	protected $hidden = array('ipAddress');

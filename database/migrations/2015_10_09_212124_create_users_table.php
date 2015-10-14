@@ -7,18 +7,21 @@ class CreateUsersTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('Users', function(Blueprint $table) {
+		Schema::create('users', function(Blueprint $table) {
 			$table->increments('user_id');
-			$table->timestamps();
 			$table->string('name', 255);
-			$table->string('email', 255);
+			$table->string('email', 255)->unique();
 			$table->string('city', 255);
-			$table->string('ipAddress');
+			$table->string('ipAddress')->nullable();
+			$table->string('password', 100);
+			$table->rememberToken();
+            $table->timestamps();
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('Users');
+		Schema::drop('users');
 	}
 }
+
