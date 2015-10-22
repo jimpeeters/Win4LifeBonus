@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Contacts;
 use Auth;
 use Input;
+use DB;
+use App\Quotation;
+use App\Validcode;
 
 class CodeController extends Controller
 {
@@ -18,12 +21,7 @@ class CodeController extends Controller
      */
     public function index()
     {
-        $code = Contacts::where('FK_user_id', '=', Auth::user()->user_id)->get();
 
-
-       /* dd(Auth::user());*/
-
-        return view('index')->with('codes', $codes);
 
     }
 
@@ -37,30 +35,51 @@ class CodeController extends Controller
      /*   return view('contactCreate');*/
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /** CODE VALIDATIE **/
     public function store(Request $request)
     {
         if(Auth::check())
         {
-        $code = new Code;
+
+            $validCode = DB::table('validCodes')->where('validCode', '=', Input::get('code'))->first();
+
+            if (is_null($validCode)) {
+                
+                $wrongcodeMessage = 'Dit is geen juiste code!';
+
+                $jumpSectionA = '';
+
+                return view('index')->with('wrongcodeMessage', $wrongcodeMessage)->with('jumpSectionA', $jumpSectionA);
+
+            } else {
+
+               if($validCode->FK_user_id == 0)
+               {
+                   $validCodeid = $validCode->id;
+                   $validCode = Validcode::find($validCodeid);
+
+                   $lotteryImg = '';
 
 
-        $code->code = Input::get('code');
+                   $validCode->FK_user_id = Auth::user()->id;
+                   $validCode->save();
 
-        $code->FK_user_id = Auth::user()->user_id; //save user id of uploading user for uploaded file
+                   $jumpSectionA = '';
 
-        $code->save();
+                   return view('index')->with('lotteryImg', $lotteryImg)->with('jumpSectionA', $jumpSectionA);
+               }
+               else {
 
+                $jumpSectionA = '';
 
-        $codes = Code::where('FK_user_id', '=', Auth::user()->user_id)->get();
+                $usedcodeMessage = 'Deze code is al reeds gebruikt !';
 
+                return view('index')->with('usedcodeMessage', $usedcodeMessage)->with('jumpSectionA', $jumpSectionA);
 
-        return view('index')->with('codes', $codes);
+               }
+            }
+
+           
 
         }
         else 

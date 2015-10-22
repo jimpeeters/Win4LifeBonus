@@ -22,7 +22,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-    protected $redirectTo = '/';
+
+    protected $redirectPath = '/';
     protected $loginPath = '/login';
 
     /**
@@ -43,18 +44,11 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        $validator = Validator::make($data, [
+        return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6|max:50',
-            'city' => 'required|max:255',
+            'password' => 'required|confirmed|min:6',
         ]);
-
-        /*return view('index')->with('validator', $validator);*/
-
-        /* return redirect('register')->withErrors($validator)->withInput();*/
-
-         return $validator;
     }
 
     /**
@@ -69,7 +63,6 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'city' => $data['city'],
         ]);
     }
 }

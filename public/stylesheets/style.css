@@ -1,59 +1,29 @@
-@font-face {
-  font-family: 'Tw cen';
-  src: url("tw-cen.ttf");
-}
-/* line 14, ../sass/style.scss */
-body {
-  background-image: url("../images/vacation.jpg");
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* line 7, ../sass/style.scss */
+.errorMsg {
+  color: #e74c3c;
 }
 
-/* line 22, ../sass/style.scss */
-#logoDiv {
-  text-align: center;
+/* line 11, ../sass/style.scss */
+#navLogo {
+  height: 46px;
 }
+
+/* line 15, ../sass/style.scss */
+.navbar-brand {
+  padding: 2px 0 2px 0;
+}
+
+/* line 19, ../sass/style.scss */
+.form-horizontal {
+  margin: 50px 0px 50px 0px;
+}
+
 /* line 24, ../sass/style.scss */
-#logoDiv #logo {
-  width: 543px;
-  height: 208px;
+#welcomeTitle {
+  color: #9ABE36;
 }
 
-/* line 30, ../sass/style.scss */
-#instructions {
-  width: 50%;
-  margin-top: 20px;
-  display: inline-block;
-  float: left;
-  /*    text-align: center;*/
-}
-/* line 36, ../sass/style.scss */
-#instructions p {
-  font-size: 25px;
-  font-family: 'Tw cen', Sans-Serif;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-left: 20px;
-}
-
-/* line 47, ../sass/style.scss */
-#codeForm {
-  margin-top: 100px;
-  width: 50%;
-  display: inline-block;
-}
-/* line 51, ../sass/style.scss */
-#codeForm ul {
-  list-style-type: none;
-  padding-left: 0%;
-}
-/* line 55, ../sass/style.scss */
-#codeForm .form-control {
-  width: 50%;
-}
-
-/* line 61, ../sass/style.scss */
+/* line 29, ../sass/style.scss */
 .mainBtn {
   background-color: #9ABE36;
   border-width: 0px;
@@ -62,17 +32,7 @@ body {
   width: 30%;
   margin-top: 10px;
 }
-/* line 66, ../sass/style.scss */
+/* line 34, ../sass/style.scss */
 .mainBtn:hover {
   background-color: #a0c638;
-}
-
-/* line 82, ../sass/style.scss */
-#registerForm {
-  margin-left: 30%;
-}
-/* line 85, ../sass/style.scss */
-#registerForm ul {
-  list-style-type: none;
-  padding-left: 0%;
 }

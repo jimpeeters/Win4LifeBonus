@@ -12,7 +12,6 @@ class CreateCodesTable extends Migration {
 			$table->timestamps();
 			$table->string('code', 20);
 			$table->integer('FK_user_id')->unsigned();
-			$table->boolean('winning1_losing0')->default(0);
 		});
 	}
 

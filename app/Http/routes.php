@@ -24,27 +24,20 @@ Route::resource('code', 'CodeController');
 Route::post('/code', array('as' => 'code', 'uses' => 'CodeController@store'));
 
 
-
 // Authentication routes...
-Route::get('/login', 'Auth\AuthController@getLogin');
-Route::post('/login', 'Auth\AuthController@postLogin');
-Route::get('/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+
+//login fail
+Route::get('/login', 'HomeController@loginFail');
+
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('/register', 'Auth\AuthController@getRegister');
-Route::post('/register', 'UserController@store');
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
-
-/*Route::get('/contacts', 'ContactController@index');
-Route::get('/contacts/add', 'ContactController@create');
-Route::post('/contacts/store', 'ContactController@store');
-
-Route::get('/contacts/edit/{id}', 'ContactController@edit');
-Route::post('/contacts/update/{id}', 'ContactController@update');
-
-Route::post('/contacts/update/{id}', 'ContactController@update');
-Route::get('/contacts/delete/{id}', 'ContactController@destroy');*/

@@ -18,6 +18,11 @@ class HomeController extends Controller
         return view('index');
     }
 
+    public function loginFail()
+    {
+        return view('loginfail');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
