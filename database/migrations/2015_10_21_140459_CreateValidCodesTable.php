@@ -10,7 +10,6 @@ class CreateValidCodesTable extends Migration
         Schema::create('validCodes', function(Blueprint $table) {
             $table->increments('id');
             $table->string('validCode', 20);
-            $table->string('imgPath', 100);
             $table->integer('FK_user_id')->unsigned();
             $table->boolean('winning1_losing0')->default(0);
             $table->timestamps();

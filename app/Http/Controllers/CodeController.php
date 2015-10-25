@@ -11,6 +11,7 @@ use Input;
 use DB;
 use App\Quotation;
 use App\Validcode;
+use App\Winner;
 
 class CodeController extends Controller
 {
@@ -60,6 +61,15 @@ class CodeController extends Controller
 
                    $lotteryImg = '';
 
+                   if($validCode->winning1_losing0 == 0)
+                   {
+                        $lotteryImg = 'lose';
+                   }
+                   else
+                   {
+                        $lotteryImg = 'win';
+                   }
+
 
                    $validCode->FK_user_id = Auth::user()->id;
                    $validCode->save();
@@ -78,9 +88,6 @@ class CodeController extends Controller
 
                }
             }
-
-           
-
         }
         else 
         {

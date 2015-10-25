@@ -45,29 +45,98 @@
 @endif
 
 @if(isset($lotteryImg))
- <script type="text/javascript">
-        $('#lot1').wScratchPad({
-          bg: './images/lot-symbols.jpg',
-          fg: './images/overlay-symbols.jpg',
-          'cursor': 'url("./images/coin.png") 5 5, default',
-          scratchMove: function (e, percent) {
-            if (percent > 70) {
-              this.clear();
-            }
-          }
-        });
 
-        $('#lot2').wScratchPad({
-          bg: './images/lot-symbols.jpg',
-          fg: './images/scratch-to-win.png',
-          'cursor': 'url("./images/coin.png") 5 5, default',
-          scratchMove: function (e, percent) {
-            if (percent > 70) {
-              this.clear();
-            }
+<style>
+canvas {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}  
+
+img {
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+
+</style>
+
+
+  @if($lotteryImg == 'win')
+   <script type="text/javascript">
+
+
+          function alertWin() {
+            alert("Je bent geselecteerd! Op het einde van de maand maken we de winnaar bekent!");
           }
-        });
-</script>
+
+          $('#lot1').wScratchPad({
+            bg: './images/lot-symbols.jpg',
+            fg: './images/overlay-symbols.jpg',
+            'cursor': 'url("./images/coin.png") 5 5, default',
+            scratchMove: function (e, percent) {
+              if (percent > 50) {
+                this.clear();
+              }
+            }
+          });
+
+          $('#lot2').wScratchPad({
+            bg: './images/lot-win.jpg',
+            fg: './images/overlay-result.jpg',
+            'cursor': 'url("./images/coin.png") 5 5, default',
+            scratchMove: function (e, percent) {
+              if (percent > 50) {
+                this.clear();
+                alertWin();
+              }
+            }
+          });
+
+
+  </script>
+  @else 
+      <script type="text/javascript">
+
+          function alertLose() {
+            alert("Je bent niet geselecteerd, probeer nogmaals!");
+          }
+
+          $('#lot1').wScratchPad({
+            bg: './images/lot-symbols.jpg',
+            fg: './images/overlay-symbols.jpg',
+            'cursor': 'url("./images/coin.png") 5 5, default',
+            scratchMove: function (e, percent) {
+              if (percent > 50) {
+                this.clear();
+              }
+            }
+          });
+
+
+
+          $('#lot2').wScratchPad({
+            bg: './images/lot-lose.jpg',
+            fg: './images/overlay-result.jpg',
+            'cursor': 'url("./images/coin.png") 5 5, default',
+            scratchMove: function (e, percent) {
+              if (percent > 50) {
+                this.clear();
+                alertLose();
+              }
+            }
+          });
+      </script>
+    @endif
+
 @endif
 
 </html>

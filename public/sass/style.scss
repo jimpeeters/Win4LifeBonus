@@ -3,6 +3,24 @@ $primarycolor: #028D64;
 $secondarycolor1 : #e0097e;
 $secondarycolor2 : #9ABE36;
 
+img {
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+canvas {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}  
 
 .errorMsg {
     color: $errorColor;

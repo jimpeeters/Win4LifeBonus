@@ -44,7 +44,6 @@ class UserController extends Controller {
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6|max:50',
-            'city' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -58,7 +57,6 @@ class UserController extends Controller {
 
         $user->name = Input::get('name');
         $user->email = Input::get('email'); 
-        $user->city = Input::get('city');
         $user->password = Input::get('password'); 
 
         $user->save();
