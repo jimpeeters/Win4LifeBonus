@@ -7,6 +7,11 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
+use View;
+use Illuminate\Http\Request;
+use Hash;
+
 
 class AuthController extends Controller
 {
@@ -48,7 +53,9 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'city' => 'required|max:255',
         ]);
+
     }
 
     /**
@@ -57,12 +64,44 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+
+/*    $ip=$_SERVER['REMOTE_ADDR']; ip adress*/
+  /*  $ip2=$_SERVER['HTTP_X_FORWARDED_FOR']; proxy server
+              'ipAddressProxy' => $data['ipAddressProxy'],
+              */
+
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+            'city' => 'required|max:255',
         ]);
+
+        if ($validator->fails()) 
+        {
+            $registerFail = '';
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput()
+                        ->with('registerFail', $registerFail);
+        }
+
+        $input = $request->all();
+
+        $user = new User();
+        $user->name = $input['name'];
+        $user->city    = $input['city'];
+        $user->email    = $input['email'];
+        $user->ipAddress    = $request->ip();
+        $user->password  = Hash::make($input['password']);
+
+        $user->save();
+
+        Auth::login($user);
+
+        return redirect('/')->with('success','Account successvol aangemaakt!');
     }
 }

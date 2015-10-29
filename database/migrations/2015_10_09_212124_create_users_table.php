@@ -12,6 +12,8 @@ class CreateUsersTable extends Migration {
 			$table->string('name', 255);
 			$table->string('email', 255)->unique();
 			$table->string('ipAddress')->nullable();
+			$table->string('ipAddressProxy')->nullable();
+			$table->string('city', 255);
 			$table->string('password', 100);
 			$table->rememberToken();
             $table->timestamps();

@@ -139,4 +139,14 @@ user-select: none;
 
 @endif
 
+                        
+@if (isset($registerFail))
+
+  <script type="text/javascript">
+      $('#register-modal').focus()
+  </script>
+
+sdfmjsqndfmkjbfmkjdsfhqkdsjbfmkqsdjhfksdqfdsfqsdfmdshfkmjqshdfmkjqhfjksdh
+@endif
+
 </html>

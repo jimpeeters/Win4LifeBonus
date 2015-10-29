@@ -91,36 +91,44 @@
         <div class="modal-content">
 
 
-            <form class="form-horizontal" method="POST" action="/auth/register">
+            <form class="form-horizontal" method="POST" action="/register">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Naam</label>
                     <div class="col-md-6">
-                         <input class="form-control" type="text" name="name" value="{{ old('name') }}" placeholder="Naam">
+                         <input class="form-control" type="text" name="name" value="{{ old('name') }}" placeholder="Naam" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Email</label>
                     <div class="col-md-6">
-                        <input class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="Email">
+                        <input class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Stad</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="city" value="{{ old('city') }}" placeholder="Stad" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Paswoord</label>
                     <div class="col-md-6">
-                        <input class="form-control" type="password" name="password" placeholder="Paswoord">
+                        <input class="form-control" type="password" name="password" placeholder="Paswoord" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Bevestig Paswoord</label>
                     <div class="col-md-6">
-                        <input class="form-control" type="password" name="password_confirmation" placeholder="Bevestiging paswoord"> 
+                        <input class="form-control" type="password" name="password_confirmation" placeholder="Bevestiging paswoord" required> 
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
@@ -129,6 +137,16 @@
                         </button>
                     </div>
                 </div>
+
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </form>
 
                    
@@ -150,6 +168,7 @@
                         @if(isset($message))
                             <h1>{{$message}}</h1>
                         @endif
+
                         <h1>Doe mee en win!</h1>
                         <h3>Maak kans op een reis</h3>
                          @if(isset(Auth::user()->name))
