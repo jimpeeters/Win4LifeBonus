@@ -19,13 +19,44 @@
     </head>
     <body>
 
+          <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation"> 
+        <div class="container topnav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="/"><img id="navLogo" src="images/logo.png" alt=""></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    @if(isset(Auth::user()->name))
+                      @if(Auth::user()->admin1_user0 == 1)
+                         <li>
+                              <a href="/dashboard">Beheer Deelnemers</a>
+                         </li>
+                      @endif
+                    @endif
+                    <li>
+                        <a type="button" data-toggle="modal" data-target="#login-modal">Inloggen</a>
+                    </li>
+                    <li>
+                        <a href="/auth/logout">Uitloggen</a>
+                    </li>
+                    <li>
+                        <a type="button" data-toggle="modal" data-target="#register-modal">Registreer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
             @yield('content')
-
-
     </body>
 
- <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
@@ -44,6 +75,7 @@
     </script>
 @endif
 
+<!-- wanneer er een lotje is -->
 @if(isset($lotteryImg))
 
 <style>

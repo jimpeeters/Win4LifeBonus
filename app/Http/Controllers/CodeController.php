@@ -16,17 +16,6 @@ use App\Winner;
 class CodeController extends Controller
 {
 
-    public function index()
-    {
-
-
-    }
-
-    public function create()
-    {
-     /*   return view('contactCreate');*/
-    }
-
     /** CODE VALIDATIE **/
     public function store(Request $request)
     {
@@ -91,75 +80,5 @@ class CodeController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $specificContact = Contacts::where('contact_id', '=', $id)->first();
-
-        return view('contactEdit')->with('contact', $specificContact);
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $contact = Contacts::where('contact_id', '=', $id)->first();
-
-        $contact->name = Input::get('name');
-        $contact->email = Input::get('email');
-        $contact->address = Input::get('address');
-        $contact->number = Input::get('number');
-
-        $contact->FK_user_id = Auth::user()->user_id; //save user id of uploading user for uploaded file
-
-        $contact->save();
-
-
-
-        $contacts = Contacts::where('FK_user_id', '=', Auth::user()->user_id)->get();
-
-
-        return view('contacts')->with('contacts', $contacts);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $contact = Contacts::find($id)->first();
-
-        $contact->delete();
-
-        $contacts = Contacts::where('FK_user_id', '=', Auth::user()->user_id)->get();
-
-        return view('contacts')->with('contacts', $contacts);
-
-
-    }
+    
 }

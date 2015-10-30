@@ -15,8 +15,10 @@ class CreateUsersTable extends Migration {
 			$table->string('ipAddressProxy')->nullable();
 			$table->string('city', 255);
 			$table->string('password', 100);
+			$table->boolean('admin1_user0')->default(0);
 			$table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

@@ -4,40 +4,9 @@
 
 
 @section('content')
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="/"><img id="navLogo" src="images/logo.png" alt=""></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a type="button" data-toggle="modal" data-target="#login-modal">Inloggen</a>
-                    </li>
-                    <li>
-                        <a href="/auth/logout">Uitloggen</a>
-                    </li>
-                    <li>
-                        <a type="button" data-toggle="modal" data-target="#register-modal">Registreer</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
 
-  <!-- Inlog modal -->
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <!-- Inlog modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"> 
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -77,7 +46,6 @@
                         <a href="/password/email">Forgot Your Password?</a>
                     </div>
                 </div>
-
                  @if (session()->has('loginFail'))
                     <div class="alert alert-danger">
                         <ul class="validationError">
@@ -90,10 +58,7 @@
       </div>
     </div>
 
-  <!-- Register modal -->
-
-
-
+    <!-- Register modal -->
     <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -155,21 +120,16 @@
                         </ul>
                     </div>
                 @endif
-            </form>
-
-                   
+            </form>   
             </div>
         </div>
       </div>
     </div>
 
-
-
     <!-- Header -->
-    <a name="about"></a>
     <div class="intro-header">
+        
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
@@ -194,18 +154,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
-
     </div>
-    <!-- /.intro-header -->
 
-    <!-- Page Content -->
 
-    <a  name="services"></a>
+    <!-- Section a -->
     <div class="content-section-a">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
@@ -265,16 +219,13 @@
                                 
                               </style>
                     @endif
-
                 </div>
             </div>
 
         </div>
-        <!-- /.container -->
-
     </div>
-    <!-- /.content-section-a -->
 
+    <!-- Section b -->
     <div class="content-section-b" id="sectionB">
 
         <div class="container">
@@ -291,15 +242,11 @@
                     <img class="img-responsive" src="images/krasbiljet.jpg" alt="krasbiljet">
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
-
     </div>
-    <!-- /.content-section-b -->
 
-    <div class="content-section-a">
-
+    <!-- Section c -->
+    <div class="content-section-c">
         <div class="container">
             <div class="row">
                 <h2 class="section-heading">Winnaars</h2>
@@ -319,10 +266,7 @@
                     <h3>Februari</h3>
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
-
     </div>
 
 

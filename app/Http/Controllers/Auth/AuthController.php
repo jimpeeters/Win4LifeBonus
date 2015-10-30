@@ -64,11 +64,14 @@ class AuthController extends Controller
     public function login(request $request)
     {   
         $input = $request->all();
+
         if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']]))
         {
-            // Authentication passed...
             return redirect('/');
         }
-        return redirect('/')->with('loginFail', ['fail']);;
+        else
+        {
+            return redirect('/')->with('loginFail', ['fail']);
+        }
     }
 }
