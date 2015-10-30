@@ -47,14 +47,14 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">E-Mail Address</label>
                     <div class="col-md-6">
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Password</label>
                     <div class="col-md-6">
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password" required>
                     </div>
                 </div>
 
@@ -77,6 +77,14 @@
                         <a href="/password/email">Forgot Your Password?</a>
                     </div>
                 </div>
+
+                 @if (session()->has('loginFail'))
+                    <div class="alert alert-danger">
+                        <ul class="validationError">
+                            <li>De opgegeven combinatie van username en wachtwoord bestaat niet!</li>
+                        </ul>
+                    </div>
+                @endif
             </form>
         </div>
       </div>
@@ -140,7 +148,7 @@
 
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
-                        <ul>
+                        <ul class="validationError">
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach

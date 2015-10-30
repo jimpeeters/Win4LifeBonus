@@ -8,6 +8,11 @@ img {
 }
 
 /* line 14, ../sass/style.scss */
+.validationError {
+  list-style-type: none;
+}
+
+/* line 18, ../sass/style.scss */
 canvas {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -20,32 +25,32 @@ canvas {
   /* mobile webkit */
 }
 
-/* line 25, ../sass/style.scss */
+/* line 29, ../sass/style.scss */
 .errorMsg {
   color: #e74c3c;
 }
 
-/* line 29, ../sass/style.scss */
+/* line 33, ../sass/style.scss */
 #navLogo {
   height: 46px;
 }
 
-/* line 33, ../sass/style.scss */
+/* line 37, ../sass/style.scss */
 .navbar-brand {
   padding: 2px 0 2px 0;
 }
 
-/* line 37, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 .form-horizontal {
   margin: 50px 0px 50px 0px;
 }
 
-/* line 42, ../sass/style.scss */
+/* line 46, ../sass/style.scss */
 #welcomeTitle {
   color: #9ABE36;
 }
 
-/* line 47, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .mainBtn {
   background-color: #9ABE36;
   border-width: 0px;
@@ -54,7 +59,7 @@ canvas {
   width: 30%;
   margin-top: 10px;
 }
-/* line 52, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 .mainBtn:hover {
   background-color: #a0c638;
 }

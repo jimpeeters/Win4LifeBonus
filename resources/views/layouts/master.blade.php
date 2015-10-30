@@ -139,14 +139,23 @@ user-select: none;
 
 @endif
 
-                        
-@if (isset($registerFail))
-
+                 
+@if (session()->has('registerFail'))
+<!--  modal openen als validation op registreren failt -->
   <script type="text/javascript">
-      $('#register-modal').focus()
+  $( document ).ready(function() {
+      $('#register-modal').modal('show'); 
+  });
   </script>
+@endif
 
-sdfmjsqndfmkjbfmkjdsfhqkdsjbfmkqsdjhfksdqfdsfqsdfmdshfkmjqshdfmkjqhfjksdh
+@if (session()->has('loginFail'))
+<!--  modal openen als validation op inloggen failt -->
+  <script type="text/javascript">
+  $( document ).ready(function() {
+      $('#login-modal').modal('show'); 
+  });
+  </script>
 @endif
 
 </html>
