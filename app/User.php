@@ -35,4 +35,9 @@ class User extends Model implements AuthenticatableContract,
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
+    public function codes()
+    {
+        return $this->hasMany('App\Code','FK_user_id','id');
+    }
 }

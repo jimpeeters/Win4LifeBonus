@@ -12,6 +12,8 @@ use DB;
 use App\Quotation;
 use App\Validcode;
 use App\Winner;
+use Carbon\Carbon;
+use App\Code;
 
 class CodeController extends Controller
 {
@@ -22,13 +24,25 @@ class CodeController extends Controller
         if(Auth::check())
         {
 
-            $validCode = DB::table('validCodes')->where('validCode', '=', Input::get('code'))->first();
+            $validCode = DB::table('validCodes')
+            ->where('validCode', '=', Input::get('code'))
+/*            ->where('month', "=" , Carbon::now()->month)*/
+            ->first();
+
+            /* Code opslagen voor controle bij admin */
+
+            $code = new Code;
+
+            $code->code = Input::get('code');
+            $code->FK_user_id = Auth::user()->id;
+
+            $code->save();
 
             if (is_null($validCode)) {
                 
                 $wrongcodeMessage = 'Dit is geen juiste code!';
 
-                $jumpSectionA = '';
+                $jumpSectionA = ''; // variabele meesturen om javascript te laten runnen
 
                 return view('index')->with('wrongcodeMessage', $wrongcodeMessage)->with('jumpSectionA', $jumpSectionA);
 
@@ -39,7 +53,9 @@ class CodeController extends Controller
                    $validCodeid = $validCode->id;
                    $validCode = Validcode::find($validCodeid);
 
-                   $lotteryImg = '';
+                   $lotteryImg = ''; // variabele meesturen om javascript te laten runnen
+
+                   /* Kijken of het een winnende code is */
 
                    if($validCode->winning1_losing0 == 0)
                    {
@@ -50,17 +66,17 @@ class CodeController extends Controller
                         $lotteryImg = 'win';
                    }
 
-
                    $validCode->FK_user_id = Auth::user()->id;
                    $validCode->save();
 
-                   $jumpSectionA = '';
+
+                   $jumpSectionA = '';  // variabele meesturen om javascript te laten runnen
 
                    return view('index')->with('lotteryImg', $lotteryImg)->with('jumpSectionA', $jumpSectionA);
                }
                else {
 
-                $jumpSectionA = '';
+                $jumpSectionA = ''; // variabele meesturen om javascript te laten runnen
 
                 $usedcodeMessage = 'Deze code is al reeds gebruikt !';
 

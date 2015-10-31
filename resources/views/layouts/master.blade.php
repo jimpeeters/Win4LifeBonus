@@ -40,9 +40,11 @@
                          </li>
                       @endif
                     @endif
-                    <li>
-                        <a type="button" data-toggle="modal" data-target="#login-modal">Inloggen</a>
-                    </li>
+                    @if(!isset(Auth::user()->name))
+                      <li>
+                          <a type="button" data-toggle="modal" data-target="#login-modal">Inloggen</a>
+                      </li>
+                    @endif
                     <li>
                         <a href="/auth/logout">Uitloggen</a>
                     </li>

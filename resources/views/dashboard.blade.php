@@ -17,6 +17,7 @@
 					        <th>Stad</th>
 					        <th>Ip adres</th>
 					        <th>Status</th>
+					        <th>Code aantal</th>
 					      </tr>
 					    </thead>
 					    <tbody>
@@ -36,7 +37,7 @@
 							    @else
 							      <td><a href="/dashboard/delete/{{$user->id}}">Diskwalificeren</a></td>
 							    @endif
-					        	
+					        	<td>{{count($user->codes)}}</td>
 					      </tr>
 					    @endforeach
 					    </tbody>

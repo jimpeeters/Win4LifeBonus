@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Code extends Model {
 
-	protected $table = 'Codes';
+	protected $table = 'codes';
 	public $timestamps = true;
 	protected $guarded = array('winning1_losing0');
 	protected $hidden = array('winning1_losing0');

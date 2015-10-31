@@ -13,7 +13,10 @@ class UserController extends Controller {
 
   public function index()
   {
-    $users = User::where('admin1_user0', '=', 0)->withTrashed()->get();
+    $users = User::where('admin1_user0', '=', 0)->with('codes')->withTrashed()->get();
+
+/*    dd($users);*/
+
     return view('dashboard')->with('users', $users);
   }
 
