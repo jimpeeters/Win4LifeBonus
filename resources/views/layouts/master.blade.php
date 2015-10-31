@@ -62,6 +62,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
+<script src="js/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/wScratchPad.min.js"></script>
 <!-- springen naar sectie b  -->
 @if (isset($jumpSectionA))
@@ -107,11 +108,6 @@ user-select: none;
   @if($lotteryImg == 'win')
    <script type="text/javascript">
 
-
-          function alertWin() {
-            alert("Je bent geselecteerd! Op het einde van de maand maken we de winnaar bekent!");
-          }
-
           $('#lot1').wScratchPad({
             bg: './images/lot-symbols.jpg',
             fg: './images/overlay-symbols.jpg',
@@ -130,7 +126,8 @@ user-select: none;
             scratchMove: function (e, percent) {
               if (percent > 50) {
                 this.clear();
-                alertWin();
+                
+                swal({   title: "Je hebt gewonnen!",   text: "Je wint een reis t.w.v 10000 euro!",   imageUrl: "images/gewonnen.jpg" });
               }
             }
           });
@@ -140,10 +137,6 @@ user-select: none;
   @else 
       <script type="text/javascript">
 
-          function alertLose() {
-            alert("Je bent niet geselecteerd, probeer nogmaals!");
-          }
-
           $('#lot1').wScratchPad({
             bg: './images/lot-symbols.jpg',
             fg: './images/overlay-symbols.jpg',
@@ -151,6 +144,7 @@ user-select: none;
             scratchMove: function (e, percent) {
               if (percent > 50) {
                 this.clear();
+                swal("Jammer!", "Je hebt niet gewonnen , probeer nogmaals!", "error")
               }
             }
           });

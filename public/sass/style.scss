@@ -15,6 +15,17 @@ user-select: none;
     list-style-type: none;
 }
 
+.btnBasic {
+    background-color: $secondarycolor2;
+    color: white;
+    border:none;
+    text-transform: none; 
+    
+    &:hover {
+        background-color: ligthen($secondarycolor2, 10) !important;
+    }
+}
+
 .dashboard {
     padding-top: 80px;
 }
@@ -64,3 +75,5 @@ canvas {
     width : 30%;
     margin-top: 10px;
 }
+
+@import 'sweetalert';

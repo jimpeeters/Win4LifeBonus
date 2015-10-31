@@ -15,8 +15,6 @@ class UserController extends Controller {
   {
     $users = User::where('admin1_user0', '=', 0)->with('codes')->withTrashed()->get();
 
-/*    dd($users);*/
-
     return view('dashboard')->with('users', $users);
   }
 
@@ -27,7 +25,6 @@ class UserController extends Controller {
 
     $users = User::where('admin1_user0', '=', 0)->withTrashed()->get();
 
-/*    return view('dashboard')->with('users', $users);*/
     return Redirect::to('dashboard')->with('users', $users);
   }
 
@@ -36,10 +33,8 @@ class UserController extends Controller {
     $specificUser = User::withTrashed()->find($id);
     $specificUser->restore();
 
-
     $users = User::where('admin1_user0', '=', 0)->withTrashed()->get();
 
-/*    return view('dashboard')->with('users', $users);*/
     return Redirect::to('dashboard')->with('users', $users);
   }
   

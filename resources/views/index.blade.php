@@ -145,10 +145,10 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a type="button" class="btn btn-default btn-lg  btnCodeIngeven"><span class="network-name">Code ingeven</span></a>
+                                <a href="#"class="btn btn-default btn-lg btnCodeIngeven btnBasic">Code ingeven</a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg btnInstructies"> <span class="network-name">Instructies</span></a>
+                                <a href="#" class="btn btn-default btn-lg btnInstructies btnBasic">Instructies</a>
                             </li>
                         </ul>
                     </div>
@@ -246,28 +246,37 @@
     </div>
 
     <!-- Section c -->
-    <div class="content-section-c">
-        <div class="container">
-            <div class="row">
-                <h2 class="section-heading">Winnaars</h2>
-            </div>
+    @if(isset($winners) && sizeof($winners) >= 1)
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <h3>November</h3>
-                </div>
-                <div class="col-lg-3">
-                    <h3>December</h3>
-                </div>
-                <div class="col-lg-3">
-                    <h3>Januari</h3>
-                </div>
-                <div class="col-lg-3">
-                    <h3>Februari</h3>
+            <div class="content-section-c">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="section-heading">Winnaars</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h3>November</h3>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>December</h3>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Januari</h3>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Februari</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                    @foreach($winners as $winner)
+                        @if($winner->winningMonth == 10)
+                            oktober : {{$winner->name}}
+                        @endif
+                    @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+    @endif
 
 
     <!-- Footer -->

@@ -16,13 +16,15 @@ class WinnersTableSeeder extends Seeder
 			$winners = array(
 
 				array(	'FK_user_id' => 0,
-						'winningMonth' => 'November'),
+						'winningMonth' => '10'),
 				array(	'FK_user_id' => 0,
-						'winningMonth' => 'December'),
+						'winningMonth' => '11'),
 				array(	'FK_user_id' => 0,
-						'winningMonth' => 'Januari'),
+						'winningMonth' => '12'),
 				array(	'FK_user_id' => 0,
-						'winningMonth' => 'Februari'),
+						'winningMonth' => '1'),
+				array(	'FK_user_id' => 0,
+						'winningMonth' => '2'),
 				);
 
 		DB::table('winners')->insert($winners);

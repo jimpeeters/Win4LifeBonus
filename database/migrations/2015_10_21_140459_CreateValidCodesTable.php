@@ -9,7 +9,7 @@ class CreateValidCodesTable extends Migration
     {
         Schema::create('validCodes', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('validCode', 20);
+            $table->string('validCode', 60);
             $table->integer('FK_user_id')->unsigned();
             $table->boolean('winning1_losing0')->default(0);
             $table->integer('month')->nullable();
