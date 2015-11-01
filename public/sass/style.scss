@@ -3,12 +3,16 @@ $primarycolor: #028D64;
 $secondarycolor1 : #e0097e;
 $secondarycolor2 : #9ABE36;
 
+a{
+    cursor: pointer;
+} 
+
 img {
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--o-user-select: none;
-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .validationError{
@@ -20,9 +24,24 @@ user-select: none;
     color: white;
     border:none;
     text-transform: none; 
+    padding: 12px 17px 12px 17px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    display: inline-block;
     
-    &:hover {
-        background-color: ligthen($secondarycolor2, 10) !important;
+    
+    
+    &:hover, &:focus {
+        background-color: lighten($secondarycolor2, 2) !important;
+        text-decoration: none;
+        color: white;
+        
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
     }
 }
 
@@ -52,6 +71,24 @@ canvas {
     padding:  2px 0 2px 0;
 }
 
+.month {
+    margin-bottom: 10px;
+}
+
+.content-section-c{
+    background-image: url('../images/vacation2.jpg');
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    color: white;
+    padding-top: 1%;
+    padding-bottom: 20%;
+
+}
+
+
+
 .form-horizontal {
     margin : 50px 0px 50px 0px;
 
@@ -59,8 +96,12 @@ canvas {
 
 #welcomeTitle {
     color : $secondarycolor2;
-}
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
 
+}
 
 .mainBtn {
     background-color: $secondarycolor2;

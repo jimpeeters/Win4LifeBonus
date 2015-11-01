@@ -29,21 +29,9 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember"> Remember Me
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                        <button type="submit" class="btnBasic" style="margin-right: 15px;">
                             Login
                         </button>
-
-                        <a href="/password/email">Forgot Your Password?</a>
                     </div>
                 </div>
                  @if (session()->has('loginFail'))
@@ -105,7 +93,7 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                        <button type="submit" class="btnBasic" style="margin-right: 15px;">
                             Registreer
                         </button>
                     </div>
@@ -137,18 +125,15 @@
                             <h1>{{$message}}</h1>
                         @endif
 
-                        <h1>Doe mee en win!</h1>
-                        <h3>Maak kans op een reis</h3>
-                         @if(isset(Auth::user()->name))
-                            <h3 id="welcomeTitle">Welkom {{Auth::user()->name}}</h3>
-                         @endif
+                        <h1>Travel for Life</h1>
+                        <h3>Voor de rest van je leven elk jaar op reis!</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="#"class="btn btn-default btn-lg btnCodeIngeven btnBasic">Code ingeven</a>
+                                <a href="#"class="btnCodeIngeven btnBasic">Code ingeven</a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg btnInstructies btnBasic">Instructies</a>
+                                <a href="#" class="btnInstructies btnBasic">Instructies</a>
                             </li>
                         </ul>
                     </div>
@@ -163,7 +148,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Geef hier je code in :</h2>
                     <form class="form-horizontal" role="form" method="POST" action="/code">
@@ -178,7 +162,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                                <button type="submit" class="btnBasic" style="margin-right: 15px;">
                                     Activeer code !
                                 </button>
                             </div>
@@ -201,7 +185,7 @@
                                 .scratchpad1{
                                   width: 200px;
                                   height: 100px;
-                                  border: solid 2px #ffffff;
+                                  border: solid 10px #FEFE01;
                                   margin-top: 15px;
 
                                 }
@@ -212,7 +196,7 @@
                                 .scratchpad2{
                                   width: 300px;
                                   height: 200px;
-                                  border: solid 2px #ffffff;
+                                  border: solid 10px #FEFE01;
                                   margin-top: 15px;
 
                                 }
@@ -235,8 +219,8 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Instructies</h2>
-                    <p class="lead">Op de voorkant van je biljet kan je een code krassen die je hier kunt valideren!Voer de code in en krab nogmaals een Win for Life biljet. Na het krabben maak je
-                    kans om op het einde van de maand geselecteerd te worden als winnaar!</p>
+                    <p class="lead">Op de voorkant van je biljet kan je een code krassen die je hier kunt valideren! Voer de code in en krab nogmaals een Win for Life biljet. Na het krabben maak je
+                    kans om voor de rest van je leven elk jaar gratis op reis te gaan!</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="images/krasbiljet.jpg" alt="krasbiljet">
@@ -251,43 +235,44 @@
             <div class="content-section-c">
                 <div class="container">
                     <div class="row">
-                        <h2 class="section-heading">Winnaars</h2>
+                        <h1 class="section-heading">Travel for Life Winnaars!</h1>
                     </div>
-                    <div class="row">
+                    <div class="row winaars">
                         <div class="col-lg-3">
-                            <h3>November</h3>
+                            <h2 class="month">November</h2>
+                            @foreach($winners as $winner)
+                                @if($winner->winningMonth == 11)
+                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-lg-3">
-                            <h3>December</h3>
+                            <h2 class="month">December</h2>
+                            @foreach($winners as $winner)
+                                @if($winner->winningMonth == 12)
+                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-lg-3">
-                            <h3>Januari</h3>
+                            <h2 class="month">Januari</h2>
+                            @foreach($winners as $winner)
+                                @if($winner->winningMonth == 1)
+                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-lg-3">
-                            <h3>Februari</h3>
+                            <h2 class="month">Februari</h2>
+                            @foreach($winners as $winner)
+                                @if($winner->winningMonth == 2)
+                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                @endif
+                            @endforeach
                         </div>
-                    </div>
-                    <div class="row">
-                    @foreach($winners as $winner)
-                        @if($winner->winningMonth == 10)
-                            oktober : {{$winner->name}}
-                        @endif
-                    @endforeach
                     </div>
                 </div>
             </div>
     @endif
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="copyright text-muted small">Win for Life &copy; Jim Peeters</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 @endsection

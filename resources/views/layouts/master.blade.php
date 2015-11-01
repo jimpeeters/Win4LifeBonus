@@ -40,17 +40,26 @@
                          </li>
                       @endif
                     @endif
-                    @if(!isset(Auth::user()->name))
+                    @if(isset(Auth::user()->name))
                       <li>
-                          <a type="button" data-toggle="modal" data-target="#login-modal">Inloggen</a>
+                            <p id="welcomeTitle">Welkom {{Auth::user()->name}}</p>
                       </li>
                     @endif
-                    <li>
-                        <a href="/auth/logout">Uitloggen</a>
-                    </li>
-                    <li>
-                        <a type="button" data-toggle="modal" data-target="#register-modal">Registreer</a>
-                    </li>
+                    @if(!isset(Auth::user()->name))
+                      <li>
+                          <a type="button" data-toggle="modal" data-target="#login-modal">Inloggen <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+                      </li>
+                    @endif
+                    @if(isset(Auth::user()->name))
+                      <li>
+                          <a href="/auth/logout">Uitloggen <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+                      </li>
+                    @endif
+                    @if(!isset(Auth::user()->name))
+                      <li>
+                          <a type="button" data-toggle="modal" data-target="#register-modal">Registreer</a>
+                      </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -127,7 +136,7 @@ user-select: none;
               if (percent > 50) {
                 this.clear();
                 
-                swal({   title: "Je hebt gewonnen!",   text: "Je wint een reis t.w.v 10000 euro!",   imageUrl: "images/gewonnen.jpg" });
+                swal({   title: "Je hebt gewonnen!",   text: "Er wordt met jouw contact opgenomen!", "succes"});
               }
             }
           });
@@ -144,7 +153,6 @@ user-select: none;
             scratchMove: function (e, percent) {
               if (percent > 50) {
                 this.clear();
-                swal("Jammer!", "Je hebt niet gewonnen , probeer nogmaals!", "error")
               }
             }
           });
@@ -158,7 +166,7 @@ user-select: none;
             scratchMove: function (e, percent) {
               if (percent > 50) {
                 this.clear();
-                alertLose();
+                swal("Jammer!", "Je hebt niet gewonnen , probeer nogmaals!", "error")
               }
             }
           });

@@ -10,7 +10,6 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		$this->call('ValidcodesTableSeeder');
-		$this->call('WinnersTableSeeder');
 		$this->call('UserTableSeeder');
 	}
 }

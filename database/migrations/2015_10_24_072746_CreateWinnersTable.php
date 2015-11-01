@@ -17,6 +17,7 @@ class CreateWinnersTable extends Migration
             $table->integer('FK_user_id')->unsigned();
             $table->string('winningMonth', 30);
             $table->string('name', 255)->nullable();
+             $table->string('city', 255)->nullable();
             $table->timestamps();
         });
     }

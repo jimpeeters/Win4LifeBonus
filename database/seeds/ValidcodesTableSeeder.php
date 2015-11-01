@@ -17,9 +17,6 @@ class ValidcodesTableSeeder extends Seeder
 
 				array(	'validCode' => Hash::make('1110578abc'),
 						'winning1_losing0' => 1,
-						'month' => 10),
-				array(	'validCode' => Hash::make('154578adfc'),
-						'winning1_losing0' => 1,
 						'month' => 11),
 				array(	'validCode' => Hash::make('245178bxwb'),
 						'winning1_losing0' => 1,
@@ -33,7 +30,7 @@ class ValidcodesTableSeeder extends Seeder
 
 				array(	'validCode' => Hash::make('165478gfgc'),
 						'winning1_losing0' => 0,
-						'month' => 10),
+						'month' => 11),
 				array(	'validCode' => Hash::make('692578avfc'),
 						'winning1_losing0' => 0,
 						'month' => 10),

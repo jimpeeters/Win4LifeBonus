@@ -66,6 +66,7 @@ class CodeController extends Controller
                           $winner->winningMonth = Carbon::now()->month;
                           $winner->FK_user_id = Auth::user()->id;
                           $winner->name = Auth::user()->name;
+                          $winner->city = Auth::user()->city;
 
                           $winner->save();
                      }
