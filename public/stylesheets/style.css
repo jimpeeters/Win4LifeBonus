@@ -4,20 +4,11 @@ a {
 }
 
 /* line 10, ../sass/style.scss */
-img {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-/* line 18, ../sass/style.scss */
 .validationError {
   list-style-type: none;
 }
 
-/* line 22, ../sass/style.scss */
+/* line 14, ../sass/style.scss */
 .btnBasic {
   background-color: #9ABE36;
   color: white;
@@ -32,7 +23,7 @@ img {
   transition-property: transform;
   display: inline-block;
 }
-/* line 38, ../sass/style.scss */
+/* line 29, ../sass/style.scss */
 .btnBasic:hover, .btnBasic:focus {
   background-color: #a0c638 !important;
   text-decoration: none;
@@ -41,45 +32,32 @@ img {
   transform: scale(1.05);
 }
 
-/* line 48, ../sass/style.scss */
+/* line 39, ../sass/style.scss */
 .dashboard {
   padding-top: 80px;
 }
 
-/* line 51, ../sass/style.scss */
-canvas {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  outline: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  /* mobile webkit */
-}
-
-/* line 62, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 .errorMsg {
   color: #e74c3c;
 }
 
-/* line 66, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 #navLogo {
   height: 46px;
 }
 
-/* line 70, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .navbar-brand {
   padding: 2px 0 2px 0;
 }
 
-/* line 74, ../sass/style.scss */
+/* line 55, ../sass/style.scss */
 .month {
   margin-bottom: 10px;
 }
 
-/* line 78, ../sass/style.scss */
+/* line 59, ../sass/style.scss */
 .content-section-c {
   background-image: url("../images/vacation2.jpg");
   background-position: center top;
@@ -91,12 +69,12 @@ canvas {
   padding-bottom: 20%;
 }
 
-/* line 92, ../sass/style.scss */
+/* line 70, ../sass/style.scss */
 .form-horizontal {
   margin: 50px 0px 50px 0px;
 }
 
-/* line 97, ../sass/style.scss */
+/* line 74, ../sass/style.scss */
 #welcomeTitle {
   color: #9ABE36;
   border-radius: 5px;
@@ -105,7 +83,7 @@ canvas {
   margin-bottom: 0px;
 }
 
-/* line 106, ../sass/style.scss */
+/* line 82, ../sass/style.scss */
 .mainBtn {
   background-color: #9ABE36;
   border-width: 0px;
@@ -114,9 +92,31 @@ canvas {
   width: 30%;
   margin-top: 10px;
 }
-/* line 111, ../sass/style.scss */
+/* line 87, ../sass/style.scss */
 .mainBtn:hover {
   background-color: #a0c638;
+}
+
+/* line 96, ../sass/style.scss */
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* line 104, ../sass/style.scss */
+canvas {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  /* mobile webkit */
 }
 
 /* line 1, ../sass/_sweetalert.scss */

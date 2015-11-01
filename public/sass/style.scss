@@ -7,14 +7,6 @@ a{
     cursor: pointer;
 } 
 
-img {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
 .validationError{
     list-style-type: none;
 }
@@ -32,8 +24,7 @@ img {
     -webkit-transition-property: transform;
     transition-property: transform;
     display: inline-block;
-    
-    
+     
     
     &:hover, &:focus {
         background-color: lighten($secondarycolor2, 2) !important;
@@ -48,16 +39,6 @@ img {
 .dashboard {
     padding-top: 80px;
 }
-canvas {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: none;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
-}  
 
 .errorMsg {
     color: $errorColor;
@@ -84,14 +65,10 @@ canvas {
     color: white;
     padding-top: 1%;
     padding-bottom: 20%;
-
 }
-
-
 
 .form-horizontal {
     margin : 50px 0px 50px 0px;
-
 }
 
 #welcomeTitle {
@@ -100,7 +77,6 @@ canvas {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0px;
-
 }
 
 .mainBtn {
@@ -116,5 +92,26 @@ canvas {
     width : 30%;
     margin-top: 10px;
 }
+
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+canvas {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}  
+
+
 
 @import 'sweetalert';

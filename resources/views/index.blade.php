@@ -237,12 +237,13 @@
                     <div class="row">
                         <h1 class="section-heading">Travel for Life Winnaars!</h1>
                     </div>
-                    <div class="row winaars">
+                    <div class="row">
                         <div class="col-lg-3">
                             <h2 class="month">November</h2>
                             @foreach($winners as $winner)
                                 @if($winner->winningMonth == 11)
-                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                    <h3>{{$winner->name}}</h3>
+                                    <h4>uit {{$winner->city}}</h4>
                                 @endif
                             @endforeach
                         </div>
@@ -250,7 +251,8 @@
                             <h2 class="month">December</h2>
                             @foreach($winners as $winner)
                                 @if($winner->winningMonth == 12)
-                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                    <h3>{{$winner->name}}</h3>
+                                    <h4>uit {{$winner->city}}</h4>
                                 @endif
                             @endforeach
                         </div>
@@ -258,7 +260,8 @@
                             <h2 class="month">Januari</h2>
                             @foreach($winners as $winner)
                                 @if($winner->winningMonth == 1)
-                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                    <h3>{{$winner->name}}</h3>
+                                    <h4>uit {{$winner->city}}</h4>
                                 @endif
                             @endforeach
                         </div>
@@ -266,7 +269,8 @@
                             <h2 class="month">Februari</h2>
                             @foreach($winners as $winner)
                                 @if($winner->winningMonth == 2)
-                                    <h3>{{$winner->name}} uit {{$winner->city}}</h3>
+                                    <h3>{{$winner->name}}</h3>
+                                    <h4>uit {{$winner->city}}</h4>
                                 @endif
                             @endforeach
                         </div>
