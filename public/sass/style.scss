@@ -42,6 +42,8 @@ a{
 
 .errorMsg {
     color: $errorColor;
+    font-size: 1.8em;
+    padding-left: 100px;
 
 }
 #navLogo {
@@ -57,14 +59,10 @@ a{
 }
 
 .content-section-c{
-    background-image: url('../images/vacation2.jpg');
-    background-position: center top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    background-color: $secondarycolor2;
     color: white;
     padding-top: 1%;
-    padding-bottom: 20%;
+    padding-bottom: 10%;
 }
 
 .form-horizontal {
@@ -111,6 +109,21 @@ canvas {
     outline: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
 }  
+
+.lottery-ticket {
+    background-image:url('../images/vacation2.jpg');
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    min-height: 0px !important;
+
+    h1 {
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        color: white;
+        }
+
+}
 
 
 

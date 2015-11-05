@@ -136,7 +136,7 @@ user-select: none;
               if (percent > 50) {
                 this.clear();
                 
-                swal({   title: "Je hebt gewonnen!",   text: "Er wordt met jouw contact opgenomen!", "succes"});
+                swal("Gewonnen!", "We nemen verder contact op met jou!", "success");
               }
             }
           });

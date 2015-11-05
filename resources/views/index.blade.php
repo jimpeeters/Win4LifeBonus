@@ -176,9 +176,9 @@
                     @endif
                    
                 </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6 lottery-ticket">
                     @if(isset($lotteryImg))
-                        <h3>Krab je lot !</h3>
+                        <h1>Krab je lot !</h1>
 
                               <div id="lot1" class="scratchpad1"></div>
                               <style>
@@ -198,6 +198,7 @@
                                   height: 200px;
                                   border: solid 10px #FEFE01;
                                   margin-top: 15px;
+                                  margin-bottom: 15px;
 
                                 }
                                 
