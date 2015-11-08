@@ -3,14 +3,14 @@
         Options -MultiViews
     </IfModule>
 
-    RewriteEngine On
+Options +FollowSymLinks
+RewriteEngine On
+#RewriteBase / #on server, uncomment this line by removing hash'#'
+RewriteBase /
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php?/$0 [PT,L,QSA]
 
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
 </IfModule>
+
