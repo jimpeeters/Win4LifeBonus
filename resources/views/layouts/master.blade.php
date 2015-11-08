@@ -116,7 +116,7 @@ user-select: none;
 
   @if($lotteryImg == 'win')
    <script type="text/javascript">
-
+          $messageWin = 0;
           $('#lot1').wScratchPad({
             bg: './images/lot-symbols.jpg',
             fg: './images/overlay-symbols.jpg',
@@ -133,10 +133,13 @@ user-select: none;
             fg: './images/overlay-result.jpg',
             'cursor': 'url("./images/coin.png") 5 5, default',
             scratchMove: function (e, percent) {
-              if (percent > 50) {
+              if (percent > 35) {
                 this.clear();
-                
-                swal("Gewonnen!", "We nemen verder contact op met jou!", "success");
+                if($messageWin == 0)
+                {
+                  swal("Gewonnen!", "We nemen verder contact op met jou!", "success");
+                  $messageWin =1;
+                }
               }
             }
           });
@@ -145,7 +148,7 @@ user-select: none;
   </script>
   @else 
       <script type="text/javascript">
-
+          $messageLose = 0;
           $('#lot1').wScratchPad({
             bg: './images/lot-symbols.jpg',
             fg: './images/overlay-symbols.jpg',
@@ -164,9 +167,14 @@ user-select: none;
             fg: './images/overlay-result.jpg',
             'cursor': 'url("./images/coin.png") 5 5, default',
             scratchMove: function (e, percent) {
-              if (percent > 50) {
+              if (percent > 35) {
                 this.clear();
-                swal("Jammer!", "Je hebt niet gewonnen , probeer nogmaals!", "error")
+                if($messageLose == 0)
+                {
+                  swal("Jammer!", "Je hebt niet gewonnen , probeer nogmaals!", "error");
+                  $messageLose = 1;
+                }
+
               }
             }
           });
